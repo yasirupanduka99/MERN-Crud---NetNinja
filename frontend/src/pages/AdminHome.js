@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react' //useEffect - when the component render
 
 // components
-import ProjectDetails from '../componenets/ProjectDetails'
+import ProjectDetails from '../components/ProjectDetails'
+import ProjectForm from '../components/ProjectForm'
 
 //CSS
 import './AdminHome.css'
@@ -30,6 +31,7 @@ const Home = () => {
                     <ProjectDetails key={project._id} project={project}/>
                 ))}
             </div>
+            <ProjectForm />
         </div>
     )
 }

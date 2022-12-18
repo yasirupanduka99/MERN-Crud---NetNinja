@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 //Pages & Componenets
 import Home from './pages/AdminHome'
-import Navbar from './componenets/Navbar'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
