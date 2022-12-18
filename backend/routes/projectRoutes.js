@@ -1,31 +1,29 @@
 const express = require('express')
+const {
+    createProject,
+    getProjects,
+    getProject,
+    deleteProject,
+    updateProject
+} = require('../controllers/projectController')
+
 
 const router = express.Router()
 
 //GET all projects
-router.get('/', (req, res) => {
-    res.json({mssg: 'GET all projects'})
-})
+router.get('/', getProjects)
 
 //GET a single project
-router.get('/:id', (req, res) => {
-    res.json({mssg: 'GET a single project'})
-})
+router.get('/:id', getProject)
 
 //POST a new project
-router.post('/', (req, res) => {
-    res.json({mssg: 'POST a new project'})
-})
+router.post('/', createProject)
 
 //DELETE a project
-router.delete('/:id', (req, res) => {
-    res.json({mssg: 'DELETE a project'})
-})
+router.delete('/:id', deleteProject)
 
 //UPDATE a project
-router.patch('/:id', (req, res) => {
-    res.json({mssg: 'UPDATE a project'})
-})
+router.patch('/:id', updateProject)
 
 
 module.exports = router
