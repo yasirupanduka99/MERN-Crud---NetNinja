@@ -2,19 +2,19 @@ import { useState } from 'react'
 
 const ProjectForm = () => {
     
-    const [topic, setTopic] = useState('')
-    const [category, setCategory] = useState('')
-    const [type, setType] = useState('')
-    const [timePeriod, setTimePeriod] = useState('')
-    const [description, setDescription] = useState('')
-    const [technology, setTechnology] = useState('')
-    const [image, setImage] = useState('')
+    const [projectTopic, setTopic] = useState('')
+    const [projectCategory, setCategory] = useState('')
+    const [projectType, setType] = useState('')
+    const [projectTimePeriod, setTimePeriod] = useState('')
+    const [projectDescription, setDescription] = useState('')
+    const [projectTechnologies, setTechnology] = useState('')
+    const [projectImage, setImage] = useState('')
     const [error, setError] = useState(null)
 
     const handleSubmit = async (e) => {
         e.preventDefault() // when sumbmit page refresh. so this method prevent refreshing
 
-        const project = { topic, category, type, timePeriod, description, technology, image }
+        const project = { projectTopic, projectCategory, projectType, projectTimePeriod, projectDescription, projectTechnologies, projectImage }
 
         const response = await fetch('/api/yasiru', {
             method: 'POST',
@@ -47,25 +47,25 @@ const ProjectForm = () => {
             <h3>Add a New Project</h3>
 
             <label>Project Topic:</label>
-            <input type="text" onChange={(e) => setTopic(e.target.value)} value={topic}/>
+            <input type="text" onChange={(e) => setTopic(e.target.value)} value={projectTopic}/>
 
             <label>Project Category:</label>
-            <input type="text" onChange={(e) => setCategory(e.target.value)} value={category} />
+            <input type="text" onChange={(e) => setCategory(e.target.value)} value={projectCategory} />
 
             <label>Project Type:</label>
-            <input type="text" onChange={(e) => setType(e.target.value)} value={type} />
+            <input type="text" onChange={(e) => setType(e.target.value)} value={projectType} />
 
             <label>Project Started Date:</label>
-            <input type="text" onChange={(e) => setTimePeriod(e.target.value)} value={timePeriod} />
+            <input type="text" onChange={(e) => setTimePeriod(e.target.value)} value={projectTimePeriod} />
 
             <label>Project Description:</label>
-            <input type="text" onChange={(e) => setDescription(e.target.value)} value={description} />
+            <input type="text" onChange={(e) => setDescription(e.target.value)} value={projectDescription} />
 
             <label>Project technology:</label>
-            <input type="text" onChange={(e) => setTechnology(e.target.value)} value={technology} />
+            <input type="text" onChange={(e) => setTechnology(e.target.value)} value={projectTechnologies} />
 
             <label>Project Image:</label>
-            <input type="text" onChange={(e) => setImage(e.target.value)} value={image} />
+            <input type="text" onChange={(e) => setImage(e.target.value)} value={projectImage} />
 
             <button type="submit">Add Project</button>
             {error && <div className="error">{error}</div>}
