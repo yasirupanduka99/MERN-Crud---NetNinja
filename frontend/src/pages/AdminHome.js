@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react' //useEffect - when the component render
+import { useEffect } from 'react' //useEffect - when the component render   || useState removed from here when adding context
+import { useProjectsContext } from "../hooks/useProjectsContext"
 
 // components
 import ProjectDetails from '../components/ProjectDetails'
@@ -8,7 +9,8 @@ import ProjectForm from '../components/ProjectForm'
 import './AdminHome.css'
 
 const Home = () => {
-    const [projects, setProjects] = useState(null)
+    //const [projects, setProjects] = useState(null)   --this remove when adding context//
+    const {projects, dispatch} = useProjectsContext()
 
     useEffect(() => {
         const fetchProject = async () => {
@@ -17,12 +19,13 @@ const Home = () => {
             const json = await response.json()
 
             if(response.ok) {
-                setProjects(json)
+                //setProjects(json) --this remove when adding context//
+                dispatch({type: 'SET_PROJECTS', payload: json})
             }
         }
 
         fetchProject()
-    }, [])
+    }, [dispatch])
 
     return (
         <div className="adminHome">

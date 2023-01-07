@@ -32,6 +32,33 @@ const getProject = async (req, res) => {
 const createProject = async (req, res) => {
     const { projectTopic, projectCategory, projectType, projectTimePeriod, projectDescription, projectTechnologies, projectImage } = req.body
 
+    let emptyFields = []
+
+    if(!projectTopic) {
+        emptyFields.push('projectTopic')
+    }
+    if(!projectCategory) {
+        emptyFields.push('projectCategory')
+    }
+    if(!projectType) {
+        emptyFields.push('projectType')
+    }
+    if(!projectTimePeriod) {
+        emptyFields.push('projectTimePeriod')
+    }
+    if(!projectDescription) {
+        emptyFields.push('projectDescription')
+    }
+    if(!projectTechnologies) {
+        emptyFields.push('projectTechnologies')
+    }
+    if(!projectImage) {
+        emptyFields.push('projectImage')
+    }
+    if(emptyFields.length > 0){
+        return res.status(400).json({ error: 'Please fill in all the fields! 🧐', emptyFields })
+    }
+
     //add doc to db
     try {
         const project = await prjModel.create({ projectTopic, projectCategory, projectType, projectTimePeriod, projectDescription, projectTechnologies, projectImage })

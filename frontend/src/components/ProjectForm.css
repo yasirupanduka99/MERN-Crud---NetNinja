@@ -1,4 +1,19 @@
 /* new workout form */
+/* layout */
+
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+
+/* :root {
+    --primary: #1aac83;
+    --error: #e7195a;
+} */
+
+body{
+    font-family: "Poppins";
+}
+
 label,
 input {
     display: block;
@@ -45,4 +60,11 @@ div.error {
     color: var(--error);
     border-radius: 4px;
     margin: 20px 0;
+}
+
+input.error {
+    border: 1px solid var(--error);
+}
+select.error {
+    border: 1px solid var(--error);
 }
